@@ -4,6 +4,14 @@
 
 An evaluation-grade, full-stack web application that allows users to search or select any Reddit community, fetches its top 50 "Hot" posts through a secure backend proxy communicating with the official Reddit API, executes zero-latency client-side sentiment analysis using the AFINN lexicon, and visualizes the community's emotional pulse across interactive charts, KPI metrics, and filterable post lists.
 
+## 🔗 Live Deployment
+
+| | Link |
+|---|---|
+| 🌐 **Frontend (Vercel)** | [https://reddit-delta-wheat.vercel.app](https://reddit-delta-wheat.vercel.app) |
+| ⚙️ **Backend API (Render)** | [https://reddit-vibe-check-api.onrender.com](https://reddit-vibe-check-api.onrender.com) |
+| 📦 **GitHub Repository** | [https://github.com/srishith552-create/Reddit_](https://github.com/srishith552-create/Reddit_) |
+
 ---
 
 ## 📸 Overview
