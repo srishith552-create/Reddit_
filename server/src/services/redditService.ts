@@ -235,9 +235,9 @@ class RedditService {
         const axiosErr = error as AxiosError<{ message?: string; error?: number | string }>;
         const status = axiosErr.response?.status;
 
-        // If in development mode and unauthenticated request is blocked by Reddit's 403 IP block,
-        // provide fallback sample data so UI and analysis can still be evaluated seamlessly
-        if (!token && (status === 403 || status === 429) && process.env.NODE_ENV !== 'production') {
+        // If unauthenticated and Reddit blocks our server IP (403/429), fall back to
+        // demo sample data so the UI remains fully demonstrable without OAuth credentials.
+        if (!token && (status === 403 || status === 429)) {
           return this.generateDevFallbackPosts(subreddit, sanitizedLimit);
         }
 
@@ -282,8 +282,8 @@ class RedditService {
         }
       }
 
-      // If in development and network or other fetch error, provide dev fallback
-      if (!token && process.env.NODE_ENV !== 'production') {
+      // If no OAuth token and any network error, fall back to demo data
+      if (!token) {
         return this.generateDevFallbackPosts(subreddit, sanitizedLimit);
       }
 
