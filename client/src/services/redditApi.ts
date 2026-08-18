@@ -7,7 +7,8 @@ export async function fetchSubredditHot(
   subreddit: string,
   limit = 50
 ): Promise<SubredditApiResponse> {
-  const url = `/api/subreddit/${encodeURIComponent(subreddit)}/hot?limit=${limit}`;
+  const base = import.meta.env.VITE_API_URL ?? '';
+  const url = `${base}/api/subreddit/${encodeURIComponent(subreddit)}/hot?limit=${limit}`;
 
   try {
     const res = await fetch(url);
